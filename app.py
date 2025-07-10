@@ -5,7 +5,6 @@
 
 
 # Instalar bibliotecas necessárias
-get_ipython().system('pip install PyMuPDF boto3 Pillow --quiet')
 
 from IPython.display import display, Markdown
 from google.colab import files
