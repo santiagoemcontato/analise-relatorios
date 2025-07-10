@@ -6,11 +6,8 @@
 
 # Instalar bibliotecas necessárias
 
-from IPython.display import display, Markdown
-from google.colab import files
 import fitz  # PyMuPDF
 
-display(Markdown("## 📎 Faça upload do relatório PDF"))
 
 # Upload do arquivo
 uploaded = files.upload()
@@ -28,13 +25,10 @@ minicodigo4(doc)
 
 
 # 1. Instalar bibliotecas necessárias
-get_ipython().system('pip install openai PyMuPDF Pillow --quiet')
 
 # 2. Imports
 import fitz  # PyMuPDF
 import pandas as pd
-from IPython.display import display, Markdown
-from google.colab import files
 import re
 import unicodedata
 
@@ -72,9 +66,7 @@ def minicodigo1(doc):
 
     if relatorios_com_faltas:
         faltas_df = pd.DataFrame(relatorios_com_faltas)
-        display(Markdown("### ❌ Faltas Injustificadas"))
-        display(faltas_df)
-        faltas_df.to_csv("relatorios_com_faltas.csv", index=False)
+                        faltas_df.to_csv("relatorios_com_faltas.csv", index=False)
     else:
         print("✅ Nenhum caso de falta injustificada foi detectado.")
 
@@ -108,9 +100,7 @@ def minicodigo1(doc):
 
     if relatorios_sem_atividade:
         atividades_df = pd.DataFrame(relatorios_sem_atividade)
-        display(Markdown("### ⚠️ Relatórios Sem Atividades Informadas"))
-        display(atividades_df)
-        atividades_df.to_csv("relatorios_sem_atividade.csv", index=False)
+                        atividades_df.to_csv("relatorios_sem_atividade.csv", index=False)
     else:
         print("✅ Todos os relatórios possuem atividades informadas.")
 
@@ -154,9 +144,7 @@ def minicodigo1(doc):
 
     if ferias_afastamentos:
         ferias_df = pd.DataFrame(ferias_afastamentos)
-        display(Markdown("### 📌 Férias ou Afastamento Informados"))
-        display(ferias_df)
-        ferias_df.to_csv("ferias_afastamentos_informados.csv", index=False)
+                        ferias_df.to_csv("ferias_afastamentos_informados.csv", index=False)
     else:
         print("✅ Nenhuma informação de férias ou afastamento foi detectada.")
 
@@ -191,9 +179,7 @@ def minicodigo1(doc):
 
     if observacoes_servidor:
         obs_df = pd.DataFrame(observacoes_servidor)
-        display(Markdown("### 📝 Observações do Servidor"))
-        display(obs_df)
-        obs_df.to_csv("observacoes_do_servidor.csv", index=False)
+                        obs_df.to_csv("observacoes_do_servidor.csv", index=False)
     else:
         print("✅ Nenhuma observação do servidor foi encontrada.")
 
@@ -257,9 +243,7 @@ def minicodigo2(doc):
 
     if resultados:
         resultado_df = pd.DataFrame(resultados)
-        display(Markdown("### 📸 Similaridade Facial AWS (2ª e 3ª imagem da 1ª página de cada relatório)"))
-        display(resultado_df)
-        resultado_df.to_csv("relatorio_similaridade_aws.csv", index=False)
+                        resultado_df.to_csv("relatorio_similaridade_aws.csv", index=False)
     else:
         print("✅ Nenhuma inconsistência de similaridade foi identificada nas primeiras páginas dos relatórios.")
 
@@ -268,15 +252,12 @@ def minicodigo2(doc):
 
 
 # 1. Instalar e importar bibliotecas necessárias
-get_ipython().system('pip install boto3 PyMuPDF Pillow --quiet')
 
 import fitz  # PyMuPDF
 import boto3
 import io
 from PIL import Image
 import pandas as pd
-from IPython.display import display, Markdown
-from google.colab import files
 
 # 2. Configurar cliente AWS Rekognition
 rekognition = boto3.client(
@@ -399,9 +380,7 @@ def minicodigo3(doc):
 
     if resultados:
         resultado_df = pd.DataFrame(resultados)
-        display(Markdown("### 🚫 Problemas detectados na 3ª imagem da 1ª página de cada relatório"))
-        display(resultado_df)
-        resultado_df.to_csv("relatorio_problemas_terceira_imagem.csv", index=False)
+                        resultado_df.to_csv("relatorio_problemas_terceira_imagem.csv", index=False)
     else:
         print("✅ Nenhum problema foi detectado nas terceiras imagens analisadas.")
 
@@ -410,15 +389,12 @@ def minicodigo3(doc):
 
 
 # 1. Instalar e importar bibliotecas necessárias
-get_ipython().system('pip install boto3 PyMuPDF Pillow --quiet')
 
 import fitz  # PyMuPDF
 import boto3
 import io
 from PIL import Image
 import pandas as pd
-from IPython.display import display, Markdown
-from google.colab import files
 
 # 2. Configurar cliente AWS Rekognition
 rekognition = boto3.client(
@@ -516,9 +492,6 @@ def minicodigo4(doc):
 
     if resultados:
         resultado_df = pd.DataFrame(resultados)
-        display(Markdown("### 🚫 Problemas detectados a partir da 3ª página de cada relatório"))
-        display(resultado_df)
-        resultado_df.to_csv("relatorio_conteudo_inapropriado.csv", index=False)
+                        resultado_df.to_csv("relatorio_conteudo_inapropriado.csv", index=False)
     else:
         print("✅ Nenhum conteúdo inapropriado foi detectado nas páginas analisadas.")
-
